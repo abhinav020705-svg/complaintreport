@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Staff Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initTheme()">
+
+<header>
+  <nav>
+    <h2>Complaint Reporting</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="report.html">Report</a></li>
+      <li><a href="track.html">Track</a></li>
+      <li><a href="login.html">Admin</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button class="toggleBtn" onclick="toggleTheme()"> Theme</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>Staff Portal Login</h2>
+    <p>Enter your Staff ID to view your assigned complaints.</p>
+    <br>
+
+    <form onsubmit="validateStaffLogin(event)">
+      <input id="staffId" type="text" placeholder="Staff ID (e.g., STF001)" required>
+      <button class="btn" type="submit">Login</button>
+    </form>
+
+    <br>
+    <div style="background: #f0f0f0; padding: 12px; border-radius: 8px; margin-top: 20px;">
+      <p><b>Sample Staff IDs:</b></p>
+      <p>STF001 - Rajesh Kumar (Roads & Infrastructure)</p>
+      <p>STF002 - Priya Singh (Water & Sanitation)</p>
+      <p>STF003 - Amit Patel (Waste Management)</p>
+      <p>STF004 - Neha Sharma (Public Lighting)</p>
+      <p>STF005 - Arjun Verma (Drainage & Sewerage)</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Track Complaint</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initTheme()">
+
+<header>
+  <nav>
+    <h2>Complaint Reporting</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="report.html">Report</a></li>
+      <li><a href="track.html">Track</a></li>
+      <li><a href="login.html">Admin</a></li>
+      <li><a href="staff-login.html">Staff</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button class="toggleBtn" onclick="toggleTheme()"> Theme</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>Track Your Complaint</h2>
+    <p>Enter your Complaint ID to see the latest status.</p>
+    <br>
+
+    <input id="trackId" type="text" placeholder="Enter Complaint ID (Example: CMP123456)">
+    <br><br>
+    <button class="btn" onclick="trackComplaint()">Track</button>
+  </div>
+
+  <div id="trackResult"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

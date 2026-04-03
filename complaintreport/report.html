@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report Complaint</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initTheme()">
+
+<header>
+  <nav>
+    <h2>Complaint Reporting</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="report.html">Report</a></li>
+      <li><a href="track.html">Track</a></li>
+      <li><a href="login.html">Admin</a></li>
+      <li><a href="staff-login.html">Staff</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button class="toggleBtn" onclick="toggleTheme()"> Theme</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>Submit a Complaint</h2>
+
+    <form onsubmit="submitComplaint(event)">
+      <div class="grid2">
+        <input id="c_name" type="text" placeholder="Your Name" required>
+        <input id="c_phone" type="text" placeholder="Phone Number" required>
+      </div>
+
+      <div class="grid2">
+        <select id="c_category" required>
+          <option value="">Select Category</option>
+          <option>Road Damage</option>
+          <option>Water Issue</option>
+          <option>Garbage</option>
+          <option>Streetlight</option>
+          <option>Drainage</option>
+          <option>Others</option>
+        </select>
+
+        
+      </div>
+
+      <input id="c_location" type="text" placeholder="Location / Area" required>
+      <textarea id="c_desc" placeholder="Describe the problem..." required></textarea>
+
+      <input id="c_photo" type="file" accept="image/*" onchange="previewImage()">
+      <small>* Optional: Upload photo proof (preview only)</small>
+
+      <div class="preview" id="previewBox">
+        <img id="previewImg" src="" alt="Preview">
+        <small>Image Preview</small>
+      </div>
+
+      <button class="btn" type="submit">Submit Complaint</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

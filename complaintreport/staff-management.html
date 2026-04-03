@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Staff Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initTheme(); checkAdminAccess(); loadStaffList()">
+
+<header>
+  <nav>
+    <h2>Complaint Reporting - Staff Management</h2>
+    <ul>
+      <li><a href="admin.html">Dashboard</a></li>
+      <li><a href="staff-management.html" style="font-weight: bold;">Staff</a></li>
+      <li><button class="toggleBtn" onclick="toggleTheme()"> Theme</button></li>
+      <li><button class="btn secondary" style="padding: 8px 12px;" onclick="adminLogout()">Logout</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <h1>Staff Management</h1>
+    <p>Create and manage staff members for your departments.</p>
+  </div>
+
+  <div class="card">
+    <h2>Add New Staff Member</h2>
+    <form onsubmit="addStaff(event)">
+      <div class="grid2">
+        <input id="staffNewId" type="text" placeholder="Staff ID (e.g., STF006)" required>
+        <input id="staffNewName" type="text" placeholder="Full Name" required>
+      </div>
+
+      <div class="grid2">
+        <input id="staffNewEmail" type="email" placeholder="Email">
+        <input id="staffNewPhone" type="tel" placeholder="Phone Number">
+      </div>
+
+      <div class="grid2">
+        <select id="staffNewDepartment" required>
+          <option value="">Select Department</option>
+          <option>Roads & Infrastructure</option>
+          <option>Water & Sanitation</option>
+          <option>Waste Management</option>
+          <option>Public Lighting</option>
+          <option>Drainage & Sewerage</option>
+          <option>Other Services</option>
+        </select>
+
+        <input id="staffNewPosition" type="text" placeholder="Position (e.g., Inspector)">
+      </div>
+
+      <button class="btn" type="submit">Add Staff Member</button>
+    </form>
+  </div>
+
+  <div class="card table-wrap">
+    <h2>All Staff Members</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Staff ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Department</th>
+          <th>Position</th>
+          <th>Assigned Tasks</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="staffListBody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
