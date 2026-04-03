@@ -1,34 +1,23 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'nodejs'   // Jenkins Node tool name
-    }
-
     stages {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/abhinav020705-svg/complaintreport'
+                git 'https://github.com/abhinav020705-svg/complaintreport.git'
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
-        stage('Test') {
+        stage('Run') {
             steps {
-                echo 'No tests yet'
-                // sh 'npm test'
-            }
-        }
-
-        stage('Run App') {
-            steps {
-                sh 'node server.js &'
+                bat 'node server.js'
             }
         }
     }
