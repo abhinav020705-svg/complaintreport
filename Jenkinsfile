@@ -3,21 +3,19 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/abhinav020705-svg/complaintreport.git'
-            }
-        }
-
         stage('Install') {
             steps {
-                bat 'npm install'
+                dir('complaintreport') {
+                    bat 'npm install'
+                }
             }
         }
 
         stage('Run') {
             steps {
-                bat 'start /B node server.js'
+                dir('complaintreport') {
+                    bat 'start /B node server.js'
+                }
             }
         }
     }
