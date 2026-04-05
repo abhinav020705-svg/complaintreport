@@ -2,10 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '20mb' }));
+app.use(express.static(path.join(__dirname)));
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -256,6 +258,7 @@ app.post('/api/staff', async (req, res) => {
     const params = [id, name, email, phone, department, position, name, email, phone, department, position];
     
     await pool.query(sql, params);
+    console.log('Staff added/updated:', { id, name });
     res.json({ ok: true, id, name });
   } catch (err) {
     console.error(err);
@@ -308,4 +311,9 @@ app.post('/api/staff/validate/:id', async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
+
+if (require.main === module) {
+  app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
+}
+
+module.exports = { app, getDepartmentForCategory, now };
